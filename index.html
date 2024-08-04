@@ -64,6 +64,8 @@
     $(document).ready(function() {
         const softwareListUrl = 'software.json';
         $.getJSON(softwareListUrl, function(data) {
+            data.sort((a, b) => a.name.localeCompare(b.name));
+
             const languages = new Set();
             const tableRows = data.map(software => {
                 software.language.split(',').forEach(lang => languages.add(lang.trim()));
