@@ -24,6 +24,9 @@
         .count-info {
             margin-top: 20px;
         }
+        .source-links {
+            word-wrap: break-word;
+        }
     </style>
 </head>
 <body>
@@ -47,14 +50,20 @@
                 <tr>
                     <th>Name</th>
                     <th>Language</th>
-                    <th>Link</th>
                 </tr>
             </thead>
             <tbody id="softwareTable">
             </tbody>
         </table>
     </div>
-    <p>From: <a href="https://github.com/Thunder33345/MCPE-ServerSoftware-List/">https://github.com/Thunder33345/MCPE-ServerSoftware-List/</a>, <a href="https://wiki.vg/Pocket_Edition_Program_List">https://wiki.vg/Pocket_Edition_Program_List</a>, <a href="https://minecraftservers.fandom.com/wiki/Bedrock_Edition_server_software">https://minecraftservers.fandom.com/wiki/Bedrock_Edition_server_software</a>, <a href="https://wiki.bedrock.dev/servers/server-software.html">https://wiki.bedrock.dev/servers/server-software.html</a></p>
+    <div class="source-links">
+        <p>From: 
+            <a href="https://github.com/Thunder33345/MCPE-ServerSoftware-List/">https://github.com/Thunder33345/MCPE-ServerSoftware-List/</a>, 
+            <a href="https://wiki.vg/Pocket_Edition_Program_List">https://wiki.vg/Pocket_Edition_Program_List</a>, 
+            <a href="https://minecraftservers.fandom.com/wiki/Bedrock_Edition_server_software">https://minecraftservers.fandom.com/wiki/Bedrock_Edition_server_software</a>, 
+            <a href="https://wiki.bedrock.dev/servers/server-software.html">https://wiki.bedrock.dev/servers/server-software.html</a>
+        </p>
+    </div>
     <br><br>
 </div>
 
@@ -70,9 +79,8 @@
             const tableRows = data.map(software => {
                 software.language.split(',').forEach(lang => languages.add(lang.trim()));
                 return `<tr>
-                    <td>${software.name}</td>
+                    <td><a href="${software.link}" target="_blank">${software.name}</a></td>
                     <td>${software.language}</td>
-                    <td><a href="${software.link}" target="_blank">Link</a></td>
                 </tr>`;
             }).join('');
             $('#softwareTable').html(tableRows);
